@@ -1,7 +1,7 @@
-defmodule VibeInput.VibesFixtures do
+defmodule TypeLeap.VibesFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `VibeInput.Vibes` context.
+  entities via the `TypeLeap.Vibes` context.
   """
 
   @doc """
@@ -14,7 +14,7 @@ defmodule VibeInput.VibesFixtures do
         query: "some query",
         vibe: "some vibe"
       })
-      |> VibeInput.Vibes.create_vibe()
+      |> TypeLeap.Vibes.create_vibe()
 
     vibe
   end

@@ -1,4 +1,4 @@
-defmodule VibeInput.DataCase do
+defmodule TypeLeap.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule VibeInput.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use VibeInput.DataCase, async: true`, although
+  by setting `use TypeLeap.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,17 +18,17 @@ defmodule VibeInput.DataCase do
 
   using do
     quote do
-      alias VibeInput.Repo
+      alias TypeLeap.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import VibeInput.DataCase
+      import TypeLeap.DataCase
     end
   end
 
   setup tags do
-    VibeInput.DataCase.setup_sandbox(tags)
+    TypeLeap.DataCase.setup_sandbox(tags)
     :ok
   end
 
@@ -36,7 +36,7 @@ defmodule VibeInput.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(VibeInput.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(TypeLeap.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end
 

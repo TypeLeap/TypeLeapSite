@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :vibe_input,
-  ecto_repos: [VibeInput.Repo],
+config :type_leap,
+  ecto_repos: [TypeLeap.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint
-config :vibe_input, VibeInputWeb.Endpoint,
+config :type_leap, TypeLeapWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: VibeInputWeb.ErrorHTML, json: VibeInputWeb.ErrorJSON],
+    formats: [html: TypeLeapWeb.ErrorHTML, json: TypeLeapWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: VibeInput.PubSub,
+  pubsub_server: TypeLeap.PubSub,
   live_view: [signing_salt: "j2TEFVVw"]
 
 # Configures the mailer
@@ -29,12 +29,12 @@ config :vibe_input, VibeInputWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :vibe_input, VibeInput.Mailer, adapter: Swoosh.Adapters.Local
+config :type_leap, TypeLeap.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  vibe_input: [
+  type_leap: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -44,7 +44,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.3",
-  vibe_input: [
+  type_leap: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

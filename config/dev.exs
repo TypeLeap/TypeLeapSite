@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :vibe_input, VibeInput.Repo,
+config :type_leap, TypeLeap.Repo,
   username: "eadz",
   password: "",
   hostname: "localhost",
-  database: "vibe_input_dev",
+  database: "type_leap_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -17,7 +17,7 @@ config :vibe_input, VibeInput.Repo,
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
 # Binding to loopback ipv4 address prevents access from other machines.
-config :vibe_input, VibeInputWeb.Endpoint,
+config :type_leap, TypeLeapWeb.Endpoint,
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
@@ -25,8 +25,8 @@ config :vibe_input, VibeInputWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "wOJDxBPZcju4kU8PAjXpqQSbGbGanIfBeVl2R+rwDMNFecAHntavc4MqZf41Rx9w",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:vibe_input, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:vibe_input, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:type_leap, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:type_leap, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -53,17 +53,17 @@ config :vibe_input, VibeInputWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :vibe_input, VibeInputWeb.Endpoint,
+config :type_leap, TypeLeapWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/vibe_input_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/type_leap_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :vibe_input, dev_routes: true
+config :type_leap, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

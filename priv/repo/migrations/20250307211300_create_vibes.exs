@@ -1,4 +1,4 @@
-defmodule VibeInput.Repo.Migrations.CreateVibes do
+defmodule TypeLeap.Repo.Migrations.CreateVibes do
   use Ecto.Migration
 
   def change do

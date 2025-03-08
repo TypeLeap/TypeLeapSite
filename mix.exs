@@ -1,9 +1,9 @@
-defmodule VibeInput.MixProject do
+defmodule TypeLeap.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :vibe_input,
+      app: :type_leap,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule VibeInput.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {VibeInput.Application, []},
+      mod: {TypeLeap.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -58,7 +58,8 @@ defmodule VibeInput.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:rename_project, "~> 0.1.0", only: :dev}
     ]
   end
 
@@ -75,10 +76,10 @@ defmodule VibeInput.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind vibe_input", "esbuild vibe_input"],
+      "assets.build": ["tailwind type_leap", "esbuild type_leap"],
       "assets.deploy": [
-        "tailwind vibe_input --minify",
-        "esbuild vibe_input --minify",
+        "tailwind type_leap --minify",
+        "esbuild type_leap --minify",
         "phx.digest"
       ]
     ]

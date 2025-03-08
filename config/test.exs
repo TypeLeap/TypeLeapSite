@@ -5,23 +5,23 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :vibe_input, VibeInput.Repo,
+config :type_leap, TypeLeap.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "vibe_input_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "type_leap_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :vibe_input, VibeInputWeb.Endpoint,
+config :type_leap, TypeLeapWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "aqIsqQRerF0cCti51/Lbx8i33bRKVOiBkhziwpbIcpxrWCFqojmThhRRefQluAhX",
   server: false
 
 # In test we don't send emails
-config :vibe_input, VibeInput.Mailer, adapter: Swoosh.Adapters.Test
+config :type_leap, TypeLeap.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false

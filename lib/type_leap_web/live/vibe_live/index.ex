@@ -1,0 +1,20 @@
+defmodule TypeLeapWeb.VibeLive.Index do
+  use TypeLeapWeb, :live_view
+
+  alias TypeLeap.Vibes
+
+  @impl true
+  def mount(_params, _session, socket) do
+    {:ok, stream(socket, :vibes, Vibes.list_vibes())}
+  end
+
+  @impl true
+  def handle_params(params, _url, socket) do
+    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
+  end
+
+  defp apply_action(socket, :index, _params) do
+    socket
+    # |> assign(:page_title, "Vibe Input")
+  end
+end

@@ -1,4 +1,4 @@
-# VibeInput
+# TypeLeap
 
 To start your Phoenix server:
 
