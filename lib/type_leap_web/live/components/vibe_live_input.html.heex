@@ -3,13 +3,17 @@
     <input
       type="text"
       id="query"
-      class={[" w-full lg:w-3/4 rounded-full ", @loading && " bg-gray-100"]}
+      class={[" w-full rounded-full ", @loading && " bg-gray-100 ",
+      !@second_button_label && " w-full lg:w-3/4 ",
+      @second_button_label && " lg:w-1/2 "
+      ]}
       name="query"
       value={@query}
       phx-change="update_query"
       phx-target={@myself}
       autocomplete="off"
     />
+  
     <button
       type="submit"
       class="w-full lg:w-1/4 border rounded-full flex gap-2 items-center justify-center p-1 hover:bg-gray-200"
@@ -19,6 +23,16 @@
       <div>{@intent_button}</div>
       <div>{@intent_icon}</div>
     </button>
+      <%= if @second_button_label do %>
+       <button
+      type="submit"
+      class="w-full lg:w-1/4 border rounded-full flex gap-2 items-center justify-center p-1 hover:bg-gray-200"
+      phx-click="submit"
+      phx-target={@myself}
+    >
+      <div>{@second_button_label}</div>
+    </button>
+    <% end %>
   </form>
 
   <div class="max-w-6xl mx-auto flex">

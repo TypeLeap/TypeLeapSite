@@ -14,6 +14,7 @@ defmodule TypeLeapWeb.VibeLiveInput do
      |> assign(:intent_locked, false)
      |> assign(:intent_button, "Go")
      |> assign(:intent_icon, nil)
+     |> assign(:second_button_label, nil)
      |> assign(:query, "")}
   end
 
@@ -50,6 +51,7 @@ defmodule TypeLeapWeb.VibeLiveInput do
     |> assign(:intent_task, nil)
     |> assign(:intent_icon, nil)
     |> assign(:intent_locked, false)
+    |> assign(:second_button_label, nil)
     |> assign(:query, "")
     |> assign_button_for_intent()
   end
@@ -61,6 +63,14 @@ defmodule TypeLeapWeb.VibeLiveInput do
       "command" => "Run Command",
       "question" => "Answer Question",
       "navigate" => "Visit Site"
+    }
+
+    second_intent_button = %{
+      "navigate" => "Open in New Tab",
+      "command" => "Debug Command",
+      "question" => "Deep Research",
+      "search" => "Image Search",
+      "knowledge" => "Fact Check"
     }
 
     intent_icons = %{
@@ -77,6 +87,7 @@ defmodule TypeLeapWeb.VibeLiveInput do
       socket
       |> assign(:intent_button, Map.get(intent_buttons, socket.assigns.intent))
       |> assign(:intent_icon, icon_func.(%{}))
+      |> assign(:second_button_label, Map.get(second_intent_button, socket.assigns.intent))
     else
       socket |> assign(:intent_button, "Go")
     end
