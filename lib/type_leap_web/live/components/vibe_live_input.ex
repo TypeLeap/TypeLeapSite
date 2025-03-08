@@ -127,7 +127,7 @@ defmodule TypeLeapWeb.VibeLiveInput do
         IO.puts("Getting intent")
         send_update(my_pid, __MODULE__, id: id, loading: true)
         %{"intent" => intent} = TypeLeapIntent.get_intent(query)
-        send_update_after(my_pid, __MODULE__, [id: id, get_intent: true], 300)
+        send_update(my_pid, __MODULE__, id: id, intent: intent, loading: false)
       end)
 
     socket |> assign(:intent_task, task)
