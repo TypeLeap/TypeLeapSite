@@ -41,7 +41,7 @@ defmodule TypeLeapWeb.Components.LlmProvider do
     |> Map.get("parts")
     |> Enum.at(0)
     |> Map.get("text")
-    |> JSON.decode!()
+    |> Jason.decode!()
   end
 
   defp headers do
