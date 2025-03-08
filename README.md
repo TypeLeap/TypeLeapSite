@@ -1,5 +1,13 @@
 # TypeLeap
 
+If you want to help with the design or copy of the main page, the file is lib/type_leap_web/live/vibe_live/index.html.heex 
+
+
+This code is not production ready, nor intented to be, it's just a demo of the TypeLeap concept.
+
+
+## Running
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
