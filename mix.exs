@@ -51,6 +51,7 @@ defmodule VibeInput.MixProject do
        compile: false,
        depth: 1},
       {:swoosh, "~> 1.5"},
+      {:req, "~> 0.5.0"},
       {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},

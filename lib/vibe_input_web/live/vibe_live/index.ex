@@ -2,7 +2,6 @@ defmodule VibeInputWeb.VibeLive.Index do
   use VibeInputWeb, :live_view
 
   alias VibeInput.Vibes
-  alias VibeInput.Vibes.Vibe
 
   @impl true
   def mount(_params, _session, socket) do
@@ -16,12 +15,6 @@ defmodule VibeInputWeb.VibeLive.Index do
 
   defp apply_action(socket, :index, _params) do
     socket
-    |> assign(:page_title, "Vibe Input")
+    # |> assign(:page_title, "Vibe Input")
   end
-
-  @impl true
-  def handle_info({VibeInputWeb.VibeLive.FormComponent, {:saved, vibe}}, socket) do
-    {:noreply, stream_insert(socket, :vibes, vibe)}
-  end
-
 end

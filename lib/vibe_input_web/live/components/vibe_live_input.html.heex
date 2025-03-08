@@ -1,10 +1,60 @@
-<form>
-  <input
-    type="text"
-    id="vibe"
-    name="vibe"
-    value={@vibe}
-    phx-change="update_vibe"
-    phx-target={@myself}
-  />
-</form>
+<div>
+  <form phx-submit="submit" phx-target={@myself} class="flex gap-2 max-w-6xl mx-auto flex-col lg:flex-row">
+    <input
+      type="text"
+      id="query"
+      class={[" w-full lg:w-3/4 rounded-full ", @loading && " bg-gray-100"]}
+      name="query"
+      value={@query}
+      phx-change="update_query"
+      phx-target={@myself}
+      autocomplete="off"
+    />
+    <button
+      type="submit"
+      class="w-full lg:w-1/4 border rounded-full flex gap-2 items-center justify-center p-1 hover:bg-gray-200"
+      phx-click="submit"
+      phx-target={@myself}
+    >
+      <div>{@intent_button}</div>
+      <div>{@intent_icon}</div>
+    </button>
+  </form>
+
+  <div class="max-w-6xl mx-auto flex">
+    <div class="mt-1 flex justify-center gap-2 w-full lg:w-3/4">
+      <%= if @query != "" do %>
+        <.render_intent_tab
+          intent="search"
+          label="Search"
+          current_intent={@intent}
+          myself={@myself}
+        />
+        <.render_intent_tab
+          intent="knowledge"
+          label="Knowledge"
+          current_intent={@intent}
+          myself={@myself}
+        />
+        <.render_intent_tab
+          intent="command"
+          label="Command"
+          current_intent={@intent}
+          myself={@myself}
+        />
+        <.render_intent_tab
+          intent="question"
+          label="Question"
+          current_intent={@intent}
+          myself={@myself}
+        />
+        <.render_intent_tab
+          intent="navigate"
+          label="Navigate"
+          current_intent={@intent}
+          myself={@myself}
+        />
+      <% end %>
+    </div>
+  </div>
+</div>
