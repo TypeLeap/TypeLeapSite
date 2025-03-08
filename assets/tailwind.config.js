@@ -8,8 +8,8 @@ const path = require("path")
 module.exports = {
   content: [
     "./js/**/*.js",
-    "../lib/vibe_input_web.ex",
-    "../lib/vibe_input_web/**/*.*ex"
+    "../lib/type_leap_web.ex",
+    "../lib/type_leap_web/**/*.*ex"
   ],
   theme: {
     extend: {
