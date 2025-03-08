@@ -9,7 +9,7 @@ defmodule TypeLeap.Application do
   def start(_type, _args) do
     children = [
       TypeLeapWeb.Telemetry,
-      TypeLeap.Repo,
+      # TypeLeap.Repo,
       {DNSCluster, query: Application.get_env(:type_leap, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: TypeLeap.PubSub},
       # Start the Finch HTTP client for sending emails

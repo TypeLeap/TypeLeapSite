@@ -8,7 +8,7 @@
 import Config
 
 config :type_leap,
-  ecto_repos: [TypeLeap.Repo],
+  ecto_repos: [],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint

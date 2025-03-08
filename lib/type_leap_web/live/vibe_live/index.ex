@@ -1,11 +1,9 @@
 defmodule TypeLeapWeb.VibeLive.Index do
   use TypeLeapWeb, :live_view
 
-  alias TypeLeap.Vibes
-
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :vibes, Vibes.list_vibes())}
+    {:ok, socket}
   end
 
   @impl true

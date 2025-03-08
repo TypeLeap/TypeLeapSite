@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :type_leap, TypeLeap.Repo,
-  username: "eadz",
+  username: "eadz2",
   password: "",
   hostname: "localhost",
   database: "type_leap_dev",
